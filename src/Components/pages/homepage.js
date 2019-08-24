@@ -10,10 +10,10 @@ class Homepage extends Component {
 
   render() {
     return (
-      <div className="container h-100">
-      <div class="h-100 row align-items-center enter--site--button">
-        <button type="button" className="btn btn-light">a different future.</button>
-      </div>
+      <div class="set--alignment">
+        <a href="http://tedxnortheasternu.com/">
+        <img className="enter--site--button" src="/TEDx_Northeastern_2Lines_White_Logo-01.png"/>
+        </a>
       </div>
     );
   }
