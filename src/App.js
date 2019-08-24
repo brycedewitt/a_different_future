@@ -5,11 +5,12 @@ import Particles from './Components/particlesBackground.js';
 import Homepage from './Components/pages/homepage.js';
 
 
+
 const App = () => {
   return (
-    <div class="App">
+    <div className="App">
       {/* <Header name="bryce"/> */}
-      <Particles />
+      <Particles speed="1"/>
       <Homepage />
     </div>
   );
