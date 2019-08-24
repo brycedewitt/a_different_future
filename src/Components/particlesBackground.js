@@ -12,6 +12,7 @@ const particlesOptions = {
     }
   }
 };
+
 class particlesBackground extends Component {
   render() {
     return <Particles className="particles" params={particlesOptions} />;

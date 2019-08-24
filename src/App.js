@@ -7,12 +7,10 @@ import Homepage from './Components/pages/homepage.js';
 
 const App = () => {
   return (
-    <div class="all">
-    <div className="App">
+    <div class="App">
       {/* <Header name="bryce"/> */}
       <Particles />
       <Homepage />
-    </div>
     </div>
   );
 };
