@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './homepage.css';
-import Timer from '../helpers/timer.js';
 
 class Homepage extends Component {
 
@@ -13,9 +12,8 @@ class Homepage extends Component {
     return (
       <div className="set--alignment">
         <a href="http://tedxnortheasternu.com/">
-        <img className="enter--site--button" src="/TEDx_Northeastern_2Lines_White_Logo-01.png"/>
+        <img className="enter--site--button" src="/TEDxDemo_Animated.gif"/>
         </a>
-        <Timer className='timer'/>
       </div>
     );
   }
