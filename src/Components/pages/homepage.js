@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './homepage.css';
-import Timer from '../timer.js';
+import Timer from '../helpers/timer.js';
 
 class Homepage extends Component {
 
