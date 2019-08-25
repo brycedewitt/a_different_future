@@ -7,9 +7,8 @@ import {
   Typography,
   withStyles,
 } from '@material-ui/core';
-
+import MenuIcon from '@material-ui/icons/Menu';
 import LoginButton from './LoginButton.js';
-
 
 const styles = {
   flex: {
@@ -20,6 +19,7 @@ const styles = {
 const AppHeader = ({ classes }) => (
   <AppBar position="static" style={{ background: 'transparent', boxShadow: 'none'}}>
     <Toolbar>
+      <Button color="inherit" component={Link} to="/info"><MenuIcon /></Button>
       <div className={classes.flex} />
       <LoginButton />
     </Toolbar>

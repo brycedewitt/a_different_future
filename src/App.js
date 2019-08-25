@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
-import { ImplicitCallback } from '@okta/okta-react';
+import { SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import { Route } from 'react-router-dom';
 import './App.css';
 import AppHeader from './Components/helpers/header';
 import Particles from './Components/helpers/particlesBackground.js';
 import Home from './Components/pages/homepage.js';
 import {CssBaseline, withStyles,} from '@material-ui/core';
+import PostsManager from "./Components/pages/PostsManager";
 
 const styles = theme => ({
   main: {
@@ -22,6 +23,7 @@ const App = ({ classes }) => (
     <AppHeader />
     <main className={classes.main}>
       <Route exact path="/" component={Home} />
+      <SecureRoute exact path="/info" component={PostsManager} />
       <Route path="/implicit/callback" component={ImplicitCallback} />
     </main>
     <Particles/>
