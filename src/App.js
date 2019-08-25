@@ -17,6 +17,7 @@ const styles = theme => ({
   },
 });
 
+
 const App = ({ classes }) => (
   <Fragment>
     <CssBaseline />
