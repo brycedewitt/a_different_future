@@ -7,6 +7,7 @@ import Particles from './Components/helpers/particlesBackground.js';
 import Home from './Components/pages/homepage.js';
 import {CssBaseline, withStyles,} from '@material-ui/core';
 import PostsManager from "./Components/pages/PostsManager";
+import Analytics from "./Components/pages/Analytics";
 
 const styles = theme => ({
   main: {
@@ -24,7 +25,8 @@ const App = ({ classes }) => (
     <AppHeader />
     <main className={classes.main}>
       <Route exact path="/" component={Home} />
-      <SecureRoute exact path="/info" component={PostsManager} />
+      <SecureRoute path="/info" component={PostsManager} />
+      <SecureRoute exact path="/analytics" component={Analytics} />
       <Route path="/implicit/callback" component={ImplicitCallback} />
     </main>
     <Particles/>
