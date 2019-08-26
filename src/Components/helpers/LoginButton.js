@@ -54,7 +54,7 @@ class LoginButton extends Component {
     return (
       <div>
         <IconButton onClick={this.handleMenuOpen} color="inherit">
-          <img src="logo192.png" style={{height:30, width:30}}/>
+          <img src="logo192.png" style={{height:30, width:30}} alt="User Profile"/>
         </IconButton>
         <Menu
           anchorEl={menuAnchorEl}

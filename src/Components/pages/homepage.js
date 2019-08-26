@@ -12,7 +12,7 @@ class Homepage extends Component {
     return (
       <div className="set--alignment">
         <a href="http://tedxnortheasternu.com/">
-        <img className="enter--site--button" src="/TEDxDemo_Animated.gif"/>
+        <img className="enter--site--button" src="/TEDxDemo_Animated.gif" alt="TEDxNortheasternU Logo, animated"/>
         </a>
       </div>
     );
