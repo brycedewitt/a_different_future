@@ -6,6 +6,7 @@ import {
   MenuItem,
   ListItemText,
 } from '@material-ui/core';
+import { AccountCircle } from '@material-ui/icons';
 import { withAuth } from '@okta/okta-react';
 
 class LoginButton extends Component {
@@ -43,6 +44,8 @@ class LoginButton extends Component {
   render() {
     const { authenticated, user, menuAnchorEl } = this.state;
 
+    console.log(this.state.auth);
+    console.log(authenticated);
     if (authenticated == null) return null;
     if (!authenticated) return <Button color="inherit" onClick={this.login}>Team Login</Button>;
 
