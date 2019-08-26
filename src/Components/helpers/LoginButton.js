@@ -6,6 +6,7 @@ import {
   MenuItem,
   ListItemText,
 } from '@material-ui/core';
+import { AccountCircle } from '@material-ui/icons';
 import { withAuth } from '@okta/okta-react';
 
 class LoginButton extends Component {
@@ -44,7 +45,7 @@ class LoginButton extends Component {
     const { authenticated, user, menuAnchorEl } = this.state;
 
     if (authenticated == null) return null;
-    if (!authenticated) return <Button color="inherit" onClick={this.login}>Team Login</Button>;
+    if (!authenticated) return <Button color="inherit" onClick={this.login}>Login</Button>;
 
     const menuPosition = {
       vertical: 'top',
@@ -54,7 +55,7 @@ class LoginButton extends Component {
     return (
       <div>
         <IconButton onClick={this.handleMenuOpen} color="inherit">
-          <img src="logo192.png" style={{height:30, width:30}}/>
+          <AccountCircle />
         </IconButton>
         <Menu
           anchorEl={menuAnchorEl}
