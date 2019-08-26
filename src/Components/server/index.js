@@ -40,8 +40,6 @@ const Post = database.define('posts', {
   body: Sequelize.TEXT,
 });
 
-Post.create({title: "Test title", body: "test body"});
-
 epilogue.initialize({ app, sequelize: database });
 
 epilogue.resource({
@@ -58,3 +56,5 @@ database.sync().then(() => {
     console.log(`Listening on port ${port}`);
   });
 });
+
+Post.create({title: "Test title", body: "test body"});

@@ -28,12 +28,14 @@
     "react-scripts": "3.1.1",
     "recompose": "0.27.1",
     "sequelize": "4.38.0",
-    "sqlite": "2.9.2"
+    "sqlite": "2.9.2",
+    "uuid": "latest"
   },
   "scripts": {
-    "start": "npm-run-all --parallel start:web",
+    "start": "npm-run-all --parallel watch:server start:web",
     "start:web": "react-scripts start",
-    "start:server": "node src/server",
+    "start:server": "node src/Components/server",
+    "watch:server": "nodemon --watch src/Components/server src/Components/server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

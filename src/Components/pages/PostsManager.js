@@ -17,6 +17,8 @@ import moment from 'moment';
 import { find, orderBy } from 'lodash';
 import { compose } from 'recompose';
 import PostEditor from "../helpers/PostEditor";
+import './homepage.css';
+import ErrorSnackbar from '../helpers/ErrorSnackbar';
 
 
 const styles = theme => ({
@@ -40,14 +42,16 @@ class PostsManager extends Component {
   state = {
     loading: true,
     posts: [],
+    error: null,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.getPosts();
   }
 
   async fetch(method, endpoint, body) {
     try {
+      console.log(method, endpoint, body);
       const response = await fetch(`${API}${endpoint}`, {
         method,
         body: body && JSON.stringify(body),
@@ -60,11 +64,13 @@ class PostsManager extends Component {
       return await response.json();
     } catch (error) {
       console.error(error);
+
+      this.setState({ error });
     }
   }
 
   async getPosts() {
-    this.setState({ loading: false, posts: await this.fetch('get', '/info') });
+    this.setState({ loading: false, posts: (await this.fetch('get', '/info')) || [] });
   }
 
   savePost = async (post) => {
@@ -76,7 +82,7 @@ class PostsManager extends Component {
 
     this.props.history.goBack();
     this.getPosts();
-  }
+  };
 
   async deletePost(post) {
     if (window.confirm(`Are you sure you want to delete "${post.title}"`)) {
@@ -99,10 +105,8 @@ class PostsManager extends Component {
 
     return (
       <Fragment>
-        {console.log(this.state)};
-        <Typography variant="h3">Posts Manager</Typography>
-        {console.log("here we go agaon")}
-        {this.state.posts.length > 0  ? (
+        <Typography variant="display1" className="whiteText">Posts Manager</Typography>
+        {this.state.posts.length > 0 ? (
           <Paper elevation={1} className={classes.posts}>
             <List>
               {orderBy(this.state.posts, ['updatedAt', 'title'], ['desc', 'asc']).map(post => (
@@ -124,7 +128,7 @@ class PostsManager extends Component {
           !this.state.loading && <Typography variant="subheading">No posts to display</Typography>
         )}
         <Button
-          variant="outlined"
+          variant="fab"
           color="secondary"
           aria-label="add"
           className={classes.fab}
@@ -134,10 +138,17 @@ class PostsManager extends Component {
           <AddIcon />
         </Button>
         <Route exact path="/info/:id" render={this.renderPostEditor} />
+        {this.state.error && (
+          <ErrorSnackbar
+            onClose={() => this.setState({ error: null })}
+            message={this.state.error.message}
+          />
+        )}
       </Fragment>
     );
   }
 }
+
 
 export default compose(
   withAuth,
