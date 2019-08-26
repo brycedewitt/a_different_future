@@ -36,7 +36,7 @@ const styles = theme => ({
   },
 });
 
-const API = process.env.REACT_APP_API || 'http://localhost:3001';
+const API = process.env.REACT_APP_API || 'tedxdemo.brycedewitt.com:3001';
 
 class PostsManager extends Component {
   state = {

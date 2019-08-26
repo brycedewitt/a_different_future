@@ -43,7 +43,7 @@ class LoginButton extends Component {
   render() {
     const { authenticated, user, menuAnchorEl } = this.state;
 
-    if (authenticated == null) return <Button color="inherit" onClick={this.login}>Team Login</Button>;
+    if (authenticated == null) return null;
     if (!authenticated) return <Button color="inherit" onClick={this.login}>Team Login</Button>;
 
     const menuPosition = {
@@ -54,7 +54,7 @@ class LoginButton extends Component {
     return (
       <div>
         <IconButton onClick={this.handleMenuOpen} color="inherit">
-          <img src="logo192.png" style={{height:30, width:30}} alt="User Profile"/>
+          <img src="logo192.png" style={{height:30, width:30}} alt="Profile"/>
         </IconButton>
         <Menu
           anchorEl={menuAnchorEl}

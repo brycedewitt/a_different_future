@@ -57,4 +57,3 @@ database.sync().then(() => {
   });
 });
 
-Post.create({title: "Test title", body: "test body"});
